@@ -1,0 +1,164 @@
+<!DOCTYPE HTML ">
+<html>
+  <head>
+    <title>text online</title>
+  <meta http-equiv=" content-type" content="txt/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+
+    <style>
+      body{
+        background-image: url('zzback.jpg');
+
+          }
+    </style>
+</head>
+  <div> </div>
+
+
+<body onload="time_fun()" style="padding:80px;">
+  <center>
+    <font size="6" color="green"><b>大学生大脑退化程度在线检测</b></font>
+    <h1>测试已开始 请开始作答 <span id="mytime">00:00:00</span></h1>
+  <audio src="hfc.mp3"controls><audio>
+  </center><br>
+  <hr>
+
+  <p>1.我是一个程序员，程序员经常熬夜有三个弊端：<br>
+    记忆力越来越差<br>
+    数数经常数错<br>
+    基于前两点，请问第三点是什么？（）</p>
+  <p>
+    <input type="radio" name="Q1" value="1">第三，记忆力越来越差。<br>
+    <input type="radio" name="Q1" value="2">第四，身体状态越来越差。<br>
+    <input type="radio" name="Q1" value="3">第三，数数经常数错。<br>
+    <input type="radio" name="Q1" value="4">第四，记忆力越来越差。<br> <!-- D -->
+  </p>
+  <p>2.有A,B,C三个学生，一个出生在北京，一个出生在上海，一个出生在广州。<br>
+    他们中一个学物理专业，一个学数学专业，一个学计算机。<br>
+    其中（1）A不是学物理的，B不是学计算机的；（2）学物理的不出生在上海；<br>
+    （3）学计算机的出生在北京；（4）B不出生在广州。请根据上述条件，判断A的专业（）。</p>
+  <p>
+    <input type="radio" name="Q2" value="1">物理<br>
+    <input type="radio" name="Q2" value="2">数学<br>
+    <input type="radio" name="Q2" value="3">计算机<br> <!-- C -->
+    <input type="radio" name="Q2" value="4">3种都有可能<br>
+  </p>
+  <p>3.杜丽去巴西出差，结果皮肤变黑了。<br>
+    杜丽去泰国出差，结果皮肤也变黑了。<br>
+    杜丽去新加坡出差，结果皮肤也变黑了。<br>
+    由此可知，杜丽一出差就会变黑。<br>
+    下面哪一个选项是对上述推理的恰当评价？</p>
+  <p>
+    <input type="radio" name="Q3" value="1">没道理，因为可能杜丽皮肤本来就很黑<br>
+    <input type="radio" name="Q3" value="2">有道理，上述推理采用了求同法找因果关系<br>
+    <input type="radio" name="Q3" value="3">有道理，三次出差无一例外的都变黑，很能说明问题<br>
+    <input type="radio" name="Q3" value="4">没道理，三次出差的地点都在热带，强烈光照是杜丽变黑我的主要原因<br> <!-- D -->
+  </p>
+  <p>4.一个长方体形状的盒子长、宽、高分别为20厘米、8厘米和2厘米。<br>
+    现在要用一张纸将其六个面完全包裹起来，要求从纸上剪下的部分不得用作贴补<br>
+    请问这张纸的大小可能是下列哪一个( )</p>
+  <p>
+    <input type="radio" name="Q4" value="1">长25cm，宽17cm<br>
+    <input type="radio" name="Q4" value="2">长26cm，宽14cm<br>
+    <input type="radio" name="Q4" value="3">长24cm，宽21cm<br> <!-- C -->
+    <input type="radio" name="Q4" value="4">长24cm，宽14cm<br>
+  </p>
+  <p>5.请问该网页背景音乐是谁唱的？( ) </p>
+  <p>
+    <input type="radio" name="Q5" value="1">王元
+    <input type="radio" name="Q5" value="2">王源
+    <input type="radio" name="Q5" value="3">王圆
+    <input type="radio" name="Q5" value="4">王O
+  </p>
+  <button onclick="main()">交卷</button>
+  <h3>
+    五道题中您一共答对了<font color="red"><span id="right_number"></font>题
+    正确的题目有:<span id="right_question" style="color:red"></span>
+    <br>
+    错误的题目有:<span id="error_question" style="color:red"></span>
+  </h3>
+  <script language="javascript">
+
+    function two_char(n) {
+      return n >= 10 ? n : "0" + n;
+    }
+    function time_fun() {
+      var sec = 0;
+      setInterval(function () {
+        sec++;
+        var date = new Date(0, 0)
+        date.setSeconds(sec);
+        var h = date.getHours(), m = date.getMinutes(), s = date.getSeconds();
+        document.getElementById("mytime").innerText = two_char(h) + ":" + two_char(m) + ":" + two_char(s);
+      }, 1000);
+    }
+
+    function main() {
+      var questionArray = new Array("Q1", "Q2", "Q3", "Q4", "Q5");
+      var resultArray = new Array();
+      var rightArray = new Array();
+
+      var aryAns = new Array(4, 3, 4, 3, 2);
+      for (var i = 0; i < questionArray.length; i++) {
+        if (Name(questionArray[i]) != 10) {
+          resultArray[i] = Name(questionArray[i]);
+        } else {
+          alert("第" + (i + 1) + "题,您未作答!!");
+          return false;
+        }
+      }
+      var right_number = 0;
+      for (var i = 0; i < questionArray.length; i++) {
+        if (aryAns[i] == resultArray[i]) {
+          right_number++;
+          rightArray[i] = 1;
+        } else {
+          rightArray[i] = 0;
+        }
+      }
+      var right_question = " ";
+      var error_question = " ";
+      for (var i = 0; i < rightArray.length; i++) {
+        if (rightArray[i] == 1) {
+          right_question += i + 1 + ",";
+        } else {
+          error_question += i + 1 + ",";
+        }
+      }
+      var time = document.getElementById("mytime").innerHTML;
+      document.getElementById("right_number").innerText = right_number;
+
+
+
+      if (right_question != " ") {
+        document.getElementById("right_question").innerText = right_question;
+
+      }
+      if (error_question != " ") {
+        document.getElementById("error_question").innerText = error_question;
+
+      }
+    };
+
+    function Name(name) {
+      var temp = document.getElementsByName(name);
+      var intHot = 9;
+      for (var i = 0; i < temp.length; i++) {
+        if (temp[i].checked)
+          intHot = temp[i].value;
+      }
+      if (intHot == 9) {
+        return 10;
+      }
+      return intHot;
+    };
+
+
+  </script>
+
+</body>
+</html>
