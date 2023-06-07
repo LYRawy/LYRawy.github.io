@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LYR  portfolio website</title>
+    <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <ul id="sidemenu">
+                    <li><a href="#header">主页</a></li>
+                    <li><a href="#about">关于我</a></li>
+                    <li><a href="#portfolio">作品集</a></li>
+                    <li><a href="#contact">联系我</a></li>
+                    <i class="bi bi-x" onclick="closemenu()"></i>
+                </ul>
+                <i class="bi bi-list" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>欢迎欢迎嘿嘿嘿</p>
+                <h1>你好，我是 <span>李宜睿</span><br>来自中国传媒大学</h1>
+            </div>
+        </div>
+    </div>
+
+<!-- About Section -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/user.jpg" >
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">简介</h1>
+                    <p class="content">我是李宜睿，2003年7月12日出生，现就读于中国传媒大学，广告学（数字营销方向）专业。对事情认真负责，有一定的抗压能力，积极学习新事物。</p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">技能</p>
+                        <p class="tab-links" onclick="opentab('experience')">经历</p>
+                        <p class="tab-links" onclick="opentab('education')">教育背景</p>
+                    </div>
+
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>PS </span><br>较为熟练地独立使用PS</li>
+                            <li><span>PR/motion</span><br>会使用基本地剪辑操作</li>
+                            <li><span>procreat</span><br>较为熟练</li>
+                            <li><span>SPSS</span><br>掌握基础的问卷数据分析</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>学校经历</span><br>担任学校创新创业协会图文设计组部长  2023.3-2023.7</li>
+                            <li><span>实践经历</span><br>在河南省广播电视台实习   2022.7-2022.9</li>
+
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>主修</span><br>本科广告学（数字营销方向） 2021.9-2025.6</li>
+                            <li><span>辅修</span><br>本科广播电视编导  2022.9-2023.12</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Section -->
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">我的作品</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="images/back.jpg">
+                    <div class="layer">
+                        <h3>绘画涂鸦</h3>
+                        <p>procreat简单画画，随便看看我的涂鸦</p>
+                        <a href="pic.html"><i class="bi bi-link"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/back1.jpg">
+                    <div class="layer">
+                        <h3>我的业余拍拍拍</h3>
+                        <p>业余的拍拍，随便看看</p>
+                        <a href="cam.html"><i class="bi bi-link"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/back3.jpg">
+                    <div class="layer">
+                        <h3>文字作品喽喽</h3>
+                        <p></p>
+                        <a href="word.html"><i class="bi bi-link"></i></a>
+                    </div>
+                </div>
+            </div>
+            <a href="" class="btn">See more</a>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">联系我哦</h1>
+                    <p><i class="bi bi-send"></i>2301615049161@qq.com</p>
+                    <p><i class="bi bi-telephone"></i>0123456789</p>
+                    <a href="images/李宜睿简历.pdf"  download class="btn btn2">简历在这</a>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="你是谁" required>
+                        <input type="email" name="Email" placeholder="你邮箱呢" required>
+                        <textarea name="Message" rows="6" placeholder="你想说什么嘞"></textarea>
+                        <button type="submit" class="btn btn2">在这提交</button>
+                    </form>
+                    <span id="msg">Hello</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <p>LYR LYR LYR</p>
+    </div>
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+
+        function openmenu(){
+            sidemenu.style.right = "0";
+        }
+        function closemenu(){
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwXXymsa3slypwUlvziQ4ydjdhsNP9xASwZQVOLzXYrYAq-ip9rqB_hZ2I4s7QIsJbFcw/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>

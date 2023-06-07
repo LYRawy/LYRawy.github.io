@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>video</title>
+<style>
+body{
+  background-image:url(images/back3.jpg);
+ }
+video{
+  width: 720px;
+      height: 480px;
+      position: absolute;
+      top: 50%;
+      left: 40%;
+      margin: -240px 0 0 -360px;
+}
+h1{
+  text-align: center;
+color: #3c9566;
+font-size: 80px
+}
+</style>
+  </head>
+  <body>
+    <h1>混剪</h1>
+  <div id="videoBtn" style="max-width:1200px;">
+          <video controls="false"  muted="muted" id="video1" name="media" style="width:1000px; height: 400px;">
+              <source src="images/wy.mp4" type="video/mp4">
+          </video>
+      </div>
+  </body>
+      <script>
+          var myVideo = document.getElementById("video1");
+          var videoBtn = document.getElementById("videoBtn");
+          myVideo.loop = true
+          videoBtn.onmouseleave = function () {
+              myVideo.pause();
+          }
+          videoBtn.onmousemove = function () {
+              myVideo.play();
+          }
+          function getVideoTime() {
+              if (document.getElementById('video1')) {
+                  let videoPlayer = document.getElementById('video1');
+                  videoPlayer.addEventListener('timeupdate', function () {
+                      console.log(`当前的时间点是${videoPlayer.currentTime},视频长度是${videoPlayer.duration}`);
+                      if (videoPlayer.currentTime > 11) {
+                          myVideo.pause();
+                          videoPlayer.currentTime = 0
+                      }
+                  }, false)
+              }
+          }
+          getVideoTime();
+      </script>
+</html>
